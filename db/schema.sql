@@ -21,7 +21,7 @@ CREATE TABLE students (
 CREATE TABLE grades (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     class_date DATE NOT NULL,
-    grade INT NOT NULL,
+    grade INT,
     student_id INT,
     FOREIGN KEY (student_id)
     REFERENCES students(id)
@@ -43,7 +43,7 @@ CREATE TABLE attendance (
 CREATE TABLE conduct (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     class_date DATE NOT NULL,
-    conduct VARCHAR (1) NOT NULL,
+    conduct VARCHAR (1),
     student_id INT,
     FOREIGN KEY (student_id)
     REFERENCES students(id)
