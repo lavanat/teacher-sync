@@ -1,0 +1,42 @@
+body {
+    background-color:#2FAAD0 ;
+}
+
+img {
+    align-items: center;
+}
+
+li {
+    justify-content: flex-end;
+}
+
+h2 {
+
+}
+
+h3 {
+
+}
+
+ul {
+
+}
+
+button {
+    font-size: 18px;
+    padding: 8px 16px;
+    margin-top: 20px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    color: #fff;
+    background: #000;  
+    margin-left: 118px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    flex-direction: row;
+}
+button:hover{
+    color: #000;
+    background: #fff;
+}
