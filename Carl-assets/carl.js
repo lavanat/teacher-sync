@@ -1,3 +1,5 @@
+ /* console.log("jQuery script code"); */
+ 
  $(function () {
    var bindDatePicker = function() {
 		$(".date").datetimepicker({
