@@ -3,6 +3,14 @@ CREATE DATABASE teacher_db;
 
 USE teacher_db;
 
+-- Teacher Table
+CREATE TABLE teachers (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    teacher_name VARCHAR(100) NOT NULL,
+    username VARCHAR(100) NOT NULL,
+    password VARCHAR(100) NOT NULL
+)
+
 -- Parent Table
 CREATE TABLE students (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,

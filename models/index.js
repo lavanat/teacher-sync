@@ -3,6 +3,7 @@ const Students = require('./student')
 const Conduct = require('./conduct')
 const Grades= require('./grade')
 const Attendance = require('./attendance')
+const Teacher = require('./teacher')
 
 Students.hasMany(Conduct,{
 foreignKey: "student_id",
@@ -31,4 +32,5 @@ Attendance.belongsTo(Students,{
     foreignKey: "student_id"
 });
 
-module.exports = { User, Students, Grades, Attendance, Conduct};
+
+module.exports = { User, Teacher };
