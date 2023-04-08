@@ -12,7 +12,6 @@ body {
 }
 
 .container-fluid {
-padding: 3% 15% 7%;
 
 }
 
@@ -20,7 +19,7 @@ padding: 3% 15% 7%;
 h1 {
 
 font-size: large;
-text-align: center;
+
 
 }
 
@@ -33,12 +32,27 @@ img {
     width: 120px;
     height: 120px;
     border-radius: 15px;
-    margin-left: 590px;
+    margin-left: 600px;
+    
 
 }
-.top-container {
-  width: 100%;
 
+.buttons {
+
+
+}
+#landingPage {
+  background-color: red;
+  
+}
+
+#gradingPeriod {
+  background-color: yellow;
+}
+
+#footerPage {
+  background-color: blue;
+}
 .dateField {
   margin-left: 570px;
 
