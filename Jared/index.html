@@ -10,28 +10,65 @@
 </head>
 
 <body>
-    <div class="LOGO">
-        <img src="teacher-sync-logo.png">
-        
+    <aside class="menu" id="signout">
+        <button class="btn-primary btn" onclick="location.href=
+        type=button"><a href="C:\Users\jared\Desktop\coding\homework\teacher-sync\assets\index.html">Sign Out</a></button>
+    </aside>
+    <header>
+      <img src="teacher-sync-logo.png">;
+    </header>
+      <div class="section-header">
         <h2> Report Card</h2>
-        <li>
+      </div>
+
+    <main>
+        <aside id="Grades" class="menu">
+            <button type="button">Grades</button>
+        </aside>
+    
+        <aside id="Attendance" class="menu">
+            <button type="button">Attendance</button>
+        </aside>
+            
+        <aside id="Conduct" class="menu">
+            <button type="button">Conduct</button>
+        </aside>
+    
+        <aside id="Report" class="menu">
+            <button type= "button">Report Card</button>
+        </aside>
+
+        <section id="Grade" class="section">
+        <div class="section-heading">
         <h3>Average Grade:</h3>
-        <h3>Average Attendance:</h3>
+    </div>
+    </section>
+
+    <section id="Attendance" class="section">
+        <div class="section-heading">
+            <h3>Average Attendance:</h3>
+        </div>
+</section>
+
+<section id="Behavior" class="section">
+    <div class="section-heading">
         <h3> Average Behavior:</h3>
-        <h3>Additional Note:</h3>
-        </li>
+    </div>
+</section>
 
-    <ul>
-        <button type= "button">Sign Out</button>
-        <button type="button">Grades</button>
-        <button type="button">Attendance</button>
-        <button type="button">Conduct</button>
-        <button type="button">Report Card</button>
-
-    </ul>
+<section id="Notes" class="section">
+    <div class="section-heading">
+        <h3>Additional Notes:</h3>
+    </div>
+</section>
+        
 
     <script src="apps.js"></script>
     </div>
-
+</main>
+<footer>
+    <a> Teacher-Sync</a>
+    <a>teacher-sync-logo</a>
+</footer>
 </body>
 </html>
