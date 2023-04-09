@@ -34,7 +34,7 @@
         if (teacher_name && username && password) {
             let response;
             try {
-                response = await fetch('/api/register', {
+                response = await fetch('/api/auth/register', {
                 method: 'POST',
                 body: JSON.stringify({ teacher_name, username, password }),
                 headers: { 'Content-Type': 'application/json' },

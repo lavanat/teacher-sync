@@ -21,10 +21,8 @@
 
 {{!-- <script src="/js/login.js" /> --}}
 <script>
-  console.log("LOGIN JS WORKS")
 
 const loginFormHandler = async (event) => {
-    console.log('LOGIN BUTTON WAS CLICKED')
     event.preventDefault();
   
     // Collect values from the login form
@@ -35,7 +33,7 @@ const loginFormHandler = async (event) => {
       // Send a POST request to the API endpoint
       let response;
       try {
-        response = await fetch('/api/login', {
+        response = await fetch('/api/auth/login', {
             method: 'POST',
             body: JSON.stringify({ username, password }),
             headers: { 'Content-Type': 'application/json' },

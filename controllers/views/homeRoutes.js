@@ -57,6 +57,20 @@ router.get('/', async (req, res) => {
         logged_in: req.session.logged_in,
         teacher_name: req.session.teacher_name
       })
-  })
+  });
+
+  router.use('/attendance', withAuth, async (req, res) => {
+    res.render('attendance',{
+        logged_in: req.session.logged_in,
+        teacher_name: req.session.teacher_name
+      });
+});
+
+router.use('/students', withAuth, async (req, res) => {
+  res.render('students',{
+      logged_in: req.session.logged_in,
+      teacher_name: req.session.teacher_name
+    });
+});
 
   module.exports = router;
