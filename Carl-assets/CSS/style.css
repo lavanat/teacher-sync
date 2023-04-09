@@ -1,0 +1,140 @@
+/* Carl style.css */
+
+body {
+    background-image: url(/assets/pexels-mudassir-ali-2680270.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 96vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.container-fluid {
+
+}
+
+
+h1 {
+  
+  font-size: large;
+  text-align: center;
+
+}
+
+p {
+  text-align: center;
+  font-weight: bold;
+}
+
+img {
+    width: 120px;
+    height: 120px;
+    border-radius: 15px;
+    margin-left: 575px;
+    
+
+}
+
+#gradingLabel {
+
+  text-align: center;
+}
+
+.attendanceTable {
+  text-align: center;
+
+}
+
+.conductTable {
+  text-align: center;
+
+}
+
+.gradesTable  {
+  text-align: center;
+
+}
+
+.buttons {
+
+
+}
+#landingPage {
+  background-color: red;
+  
+}
+
+#gradingPeriod {
+  background-color: yellow;
+}
+
+#footerPage {
+  background-color: blue;
+}
+.dateField {
+  margin-left: 570px;
+
+}
+
+}
+[type="date"] {
+  background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
+}
+[type="date"]::-webkit-inner-spin-button {
+  display: none;
+}
+[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
+/* custom styles */
+body {
+  padding: 4em;
+  background: #e5e5e5;
+  font: 13px/1.4 Geneva, 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+}
+label {
+  display: block;
+}
+input {
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 3px 5px;
+  box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+  width: 190px;
+}
+
+button{
+    font-size: 18px;
+    padding: 8px 16px;
+    margin-top: 20px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    color: #fff;
+    background: #000;  
+    margin-left: 118px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover{
+    color:#000;
+    background: #fff;
+
+}
+
+.bottom-container {
+  text-align: center;
+  margin: 0 auto;
+  
+}
+
+#footer {
+  margin-top: 100px;
+  padding: 2% 12%;
+  text-align: center;
+}
