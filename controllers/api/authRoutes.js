@@ -7,7 +7,7 @@ router.post('/login', async (req, res) => {
     
         if (!teacherData) {
           res
-            .status(400)
+            .status(404)
             .json({ message: 'Incorrect username or password, please try again' });
           return;
         }
@@ -65,7 +65,7 @@ router.post('/logout', (req, res) => {
         res.status(204).end();
       });
     } else {
-      res.status(404).end();
+      res.status(400).end();
     }
   });
 
