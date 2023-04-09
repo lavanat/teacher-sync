@@ -17,23 +17,43 @@ body {
 
 
 h1 {
-
-font-size: large;
-
+  
+  font-size: large;
+  text-align: center;
 
 }
 
 p {
-
-color: red;
+  text-align: center;
+  font-weight: bold;
 }
 
 img {
     width: 120px;
     height: 120px;
     border-radius: 15px;
-    margin-left: 600px;
+    margin-left: 575px;
     
+
+}
+
+#gradingLabel {
+
+  text-align: center;
+}
+
+.attendanceTable {
+  text-align: center;
+
+}
+
+.conductTable {
+  text-align: center;
+
+}
+
+.gradesTable  {
+  text-align: center;
 
 }
 
