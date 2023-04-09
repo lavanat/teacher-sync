@@ -38,30 +38,37 @@
             <button type= "button">Report Card</button>
         </aside>
 
-        <section id="Grade" class="section">
-        <div class="section-heading">
-        <h3>Average Grade:</h3>
-    </div>
-    </section>
+        <section id="studentid">
+            <h4>Student Name:</h4>
+        </section>
 
-    <section id="Attendance" class="section">
-        <div class="section-heading">
-            <h3>Average Attendance:</h3>
-        </div>
-</section>
+        <table>
+            <caption><h3>Student Percentages</h3></caption>
+            <colgroup>
+                <col>
+                <col span="2" class="catergory">
+                <col span="2" class="percentage">
+                <tr>
+                    <th scope="col"><h3>Catergory</h3></th>
+                    <th scope="col"><h3>Percentage</h3></th>
+                </tr>
+            </colgroup>
 
-<section id="Behavior" class="section">
-    <div class="section-heading">
-        <h3> Average Behavior:</h3>
-    </div>
-</section>
+                <th id="row1"><h3>Average Grade</h3></th>
+          </tr>
+          <tr>
+          
+          <th id="row2"><h3> Average Attendance</h3></th>
+            </tr>
+          <tr>
+          <th id="row3"><h3> Average Behavior</h3></th>
 
-<section id="Notes" class="section">
-    <div class="section-heading">
-        <h3>Additional Notes:</h3>
-    </div>
-</section>
-        
+          </tr>
+        </table>
+        <label for="notes"><h4>Additional Notes:</h4></label>
+
+        <input type="text" id="notes" name="notes" required
+               minlength="4" maxlength="300" size="10">
 
     <script src="apps.js"></script>
     </div>

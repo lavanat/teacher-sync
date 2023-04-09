@@ -1,5 +1,5 @@
 body {
-    background-color:#2FAAD0 ;
+    background-image: url(pexels-mudassir-ali-2680270.jpg) ;
     margin-right: 120px;
 }
 
@@ -12,7 +12,7 @@ justify-content:center;
     display: flex;
     justify-content: center;
     text-align: center;
-    text-decoration: solid #d9d9d9;
+    text-decoration: underline #d9d9d9;
     
 }
 
@@ -23,19 +23,30 @@ img {
     align-items: center;
 
 }
-.section {
-justify-content: flex-end;
+
+.percentage {
+    background-color: #000;
+    color: #e7e7e7;
+}
+
+caption {
+    padding: 8px;
+    caption-side: bottom;
+}
+
+table {
 border-bottom: 5px solid #d9d9d9;
 border-left: 2px solid #d9d9d9;
 border-top: 2px solid #d9d9d9;
 border-radius: 2px solid #d9d9d9;
 border-right: 2px solid #d9d9d9;
+background-origin: padding-box;
+width: 1000px;
+height: 500px;
 }
 
-.section-heading {
-    flex: 3;
-    padding-left: 2rem;
-    flex-direction:column-reverse;
+colgroup {
+    background-color: #000;
 }
 
 h2 {
@@ -45,10 +56,9 @@ h2 {
 }
 
 h3 {
-    align-self: flex-start;
-    margin-top:  27px; 
-    margin-bottom: 221px;
-    margin-left: 12px ;
+    background-color: #000;
+    color: #d9d9d9;
+
 
 }
 
@@ -77,4 +87,9 @@ button {
 button:hover{
     color: #000;
     background: #fff;
+}
+
+input {
+    width: 875px; 
+    height: 100px;
 }
