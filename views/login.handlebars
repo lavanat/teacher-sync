@@ -1,7 +1,28 @@
-console.log("LOGIN JS WORKS")
+<div class="row">
+  <div class="col-md-6">
+    <h2>Login</h2>
+
+    <form class="form login-form">
+      <div class="form-group">
+        <label for="email-login">Username:</label>
+        <input class="form-input" type="text" id="username" />
+      </div>
+      <div class="form-group">
+        <label for="password-login">Password:</label>
+        <input class="form-input" type="password" id="password" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">Login</button>
+      </div>
+    </form>
+  </div>
+
+</div>
+
+{{!-- <script src="/js/login.js" /> --}}
+<script>
 
 const loginFormHandler = async (event) => {
-    console.log('LOGIN BUTTON WAS CLICKED')
     event.preventDefault();
   
     // Collect values from the login form
@@ -12,7 +33,7 @@ const loginFormHandler = async (event) => {
       // Send a POST request to the API endpoint
       let response;
       try {
-        response = await fetch('/api/login', {
+        response = await fetch('/api/auth/login', {
             method: 'POST',
             body: JSON.stringify({ username, password }),
             headers: { 'Content-Type': 'application/json' },
@@ -31,3 +52,4 @@ const loginFormHandler = async (event) => {
   };
 
 document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
+</script>
