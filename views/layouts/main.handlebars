@@ -16,8 +16,13 @@
         <a href="/">Teacher Sync</a>
       </h1>
       <nav>
-        <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
+        <a href="/students">Students</a>
+        <a href="/grades">Grades</a>
+        <a href="/conduct">Conduct</a>
+        <a href="/attendance">Attendance</a>
+        <a href="/reportcard">Report Card</a>
+        <!-- Conditionally render login or logout links -->
         <button class="no-button" id="logout">logout</button>
         {{else}}
         <a href="/login">login</a>
