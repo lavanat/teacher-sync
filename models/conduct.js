@@ -20,10 +20,7 @@ Conduct.init(
         },
         student_id: {
           type: DataTypes.INTEGER,
-          references: {
-            model: 'student',
-            key: 'id',
-          },
+          allowNull: false
         },
       },
       {

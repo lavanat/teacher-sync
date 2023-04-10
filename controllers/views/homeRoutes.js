@@ -35,7 +35,7 @@ router.get('/', async (req, res) => {
   router.get('/login', (req, res) => {
     // If the user is already logged in, redirect the request to another route
     if (req.session.logged_in) {
-      res.redirect('/grades');
+      res.redirect('/grade');
       return;
     }
   
@@ -45,15 +45,15 @@ router.get('/', async (req, res) => {
   router.get('/register', (req, res) => {
     // If the user is already logged in, redirect the request to another route
     if (req.session.logged_in) {
-      res.redirect('/grades');
+      res.redirect('/grade');
       return;
     }
   
     res.render('register');
   });
 
-  router.get('/grades', withAuth, async (req, res) => {
-      res.render('grades', {
+  router.get('/grade', withAuth, async (req, res) => {
+      res.render('grade', {
         logged_in: req.session.logged_in,
         teacher_name: req.session.teacher_name
       })
@@ -64,6 +64,13 @@ router.get('/', async (req, res) => {
         logged_in: req.session.logged_in,
         teacher_name: req.session.teacher_name
       });
+});
+
+router.use('/conduct', withAuth, async (req, res) => {
+  res.render('conduct',{
+      logged_in: req.session.logged_in,
+      teacher_name: req.session.teacher_name
+    });
 });
 
 router.use('/students', withAuth, async (req, res) => {
