@@ -12,18 +12,16 @@ Grade.init(
           autoIncrement: true,
         },
         class_date: {
-          type: DataTypes.DATEONLY,
+          type: DataTypes.DATE,
           allowNull: false,
         },
         grade: {
           type: DataTypes.INTEGER,
+          allowNull: false,
         },
         student_id: {
           type: DataTypes.INTEGER,
-          references: {
-            model: 'student',
-            key: 'id',
-          },
+          allowNull: false
         },
       },
       {

@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Op } = require('sequelize');
-const { Grade } = require('../../models');
+const { Conduct } = require('../../models');
 
 router.get('/:startDate/:endDate', async (req, res) => {
     const {startDate, endDate} = req.params;
@@ -13,7 +13,7 @@ router.get('/:startDate/:endDate', async (req, res) => {
     }
 
     try {
-        const grade = await Grade.findAll({
+        const conduct = await Conduct.findAll({
             where: {
                 "class_date": {
                     [Op.between]: [new Date(startDate), new Date(endDate)]
@@ -21,7 +21,7 @@ router.get('/:startDate/:endDate', async (req, res) => {
             }
         });
 
-        res.status(200).json(grade);
+        res.status(200).json(conduct);
     } catch (err) {
         res.status(400).json({
             error: err,
@@ -32,27 +32,27 @@ router.get('/:startDate/:endDate', async (req, res) => {
 
 router.post('/update', async (req, res) => {
     try {
-        const {student_id, grade, grade_id, class_date} = req.body;
+        const {student_id, conduct, conduct_id, class_date} = req.body;
 
-        if(!grade_id) {
-            // this is new POST Grade
-            const gradeDate = await Grade.create({
+        if(!conduct_id) {
+            // this is new POST Conduct
+            const conductDate = await Conduct.create({
                 student_id,
-                grade,
+                conduct,
                 class_date
             });
     
-            res.status(201).json(gradeDate);
+            res.status(201).json(conductDate);
     
         } else {
             // this is an update
-            const gradeDate = await Grade.update({ grade }, {
+            const conductDate = await Conduct.update({ conduct }, {
                 where: {
-                    grade_id
+                    conduct_id
                 }
             });
 
-            res.status(204).json(gradeDate);
+            res.status(204).json(conductDate);
 
         }
     } catch(err) {
