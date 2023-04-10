@@ -35,7 +35,7 @@ router.post('/update', async (req, res) => {
         const {student_id, grade, grade_id, class_date} = req.body;
 
         if(!grade_id) {
-            // this is new POST ATTENDANCE
+            // this is new POST Grade
             const gradeDate = await Grade.create({
                 student_id,
                 grade,
