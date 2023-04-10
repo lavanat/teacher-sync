@@ -9,7 +9,7 @@ CREATE TABLE teachers (
     teacher_name VARCHAR(100) NOT NULL,
     username VARCHAR(100) NOT NULL,
     password VARCHAR(100) NOT NULL
-)
+);
 
 -- Parent Table
 CREATE TABLE students (

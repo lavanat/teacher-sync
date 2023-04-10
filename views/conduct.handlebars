@@ -8,7 +8,7 @@
 
 
 <div id="tableLabel"></div>
-<table id="gradeTable">
+<table id="conductTable">
     <thead>
         <th>Student Name</th>
         <th>Monday</th>
@@ -19,19 +19,19 @@
     </thead>
 </table>
 
-{{!-- <button onclick="editGrade(false)" id="editButton">Edit grade</button> --}}
-{{!-- <button onclick="saveGrade()" id="saveButton" disabled>Save</button> --}}
+{{!-- <button onclick="editConduct(false)" id="editButton">Edit conduct</button> --}}
+{{!-- <button onclick="saveConduct()" id="saveButton" disabled>Save</button> --}}
 
 
 <script>
 const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 let students = [];
-let grade = [];
+let conduct = [];
 
-const mapDateToDay = (grade) => {
+const mapDateToDay = (conduct) => {
     const result = {};
 
-    grade.forEach((att, i) => {
+    conduct.forEach((att, i) => {
         const tempDay = new Date(att.class_date).getUTCDay();
         const dayOfWeek = weekday[tempDay];
         result[dayOfWeek] = att;
@@ -44,7 +44,7 @@ const inputStartDate = document.getElementById("startDate");
 const inputEndDate = document.getElementById("endDate");
 
 const cleanUpTableRows = () => {
-    const table = document.getElementById('gradeTable');
+    const table = document.getElementById('conductTable');
     let tableRows = table.rows.length;
 
     while(--tableRows) {
@@ -58,18 +58,18 @@ const addDays = (date, days) => {
     return result.toISOString().split('T')[0];
 }
 
-const fetchGrade = (firstDayOfWeek, lastDayOfWeek) => {
-     return fetch(`/api/grades/${firstDayOfWeek}/${lastDayOfWeek}`, {
+const fetchConduct = (firstDayOfWeek, lastDayOfWeek) => {
+     return fetch(`/api/conduct/${firstDayOfWeek}/${lastDayOfWeek}`, {
         method: 'GET',
     headers: { 'Content-Type': 'application/json' },
     }).then(data => data.json())
-    .then(gradeData => {
-        grade = [...gradeData]
+    .then(conductData => {
+        conduct = [...conductData]
     }).then(() => {
         cleanUpTableRows();
         const { firstDayOfWeek, lastDayOfWeek} = calculateWeekForToday();
-        document.getElementById("tableLabel").innerHTML = `Showing grades for ${firstDayOfWeek} - ${lastDayOfWeek}`
-        const table = document.getElementById("gradeTable");
+        document.getElementById("tableLabel").innerHTML = `Showing conduct for ${firstDayOfWeek} - ${lastDayOfWeek}`
+        const table = document.getElementById("conductTable");
         
         const tbody = document.createElement('tbody');
 
@@ -80,9 +80,9 @@ const fetchGrade = (firstDayOfWeek, lastDayOfWeek) => {
             stNameTd.appendChild(document.createTextNode(st.student_name))
 
 
-            const tempArray = grade.filter(att => att.student_id == st.id);
+            const tempArray = conduct.filter(att => att.student_id == st.id);
 
-            const mappedGrade = mapDateToDay(tempArray);
+            const mappedConduct = mapDateToDay(tempArray);
 
             for(let i = 1; i <=5; i++) {
                 const td = tr.insertCell();
@@ -97,24 +97,24 @@ const fetchGrade = (firstDayOfWeek, lastDayOfWeek) => {
 
                 attInput.onkeypress = function(event) {
                     if(event.key == "Enter") {
-                       updateGradeApiCall({
+                       updateConductApiCall({
                            student_id: event.target.getAttribute("data-studentId"), 
-                           grade: event.target.value, 
-                           grade_id: event.target.getAttribute("data-gradeId"), 
+                           conduct: event.target.value, 
+                           conduct_id: event.target.getAttribute("data-conductId"), 
                            class_date: event.target.getAttribute("data-classDate")
                        }).then(() => {
                            event.target.readOnly = true;
-                           alert("Grade has been updated");
+                           alert("Conduct has been updated");
                        })
                     }
                     
                 }
 
-                if (mappedGrade[weekday[i]]) {
-                    attInput.value = mappedGrade[weekday[i]].grade;
-                    attInput.setAttribute('data-gradeId', mappedGrade[weekday[i]].id);
-                    attInput.setAttribute('data-classDate', mappedGrade[weekday[i]].class_date)
-                    //td.appendChild(document.createTextNode(mappedGrade[weekday[i]]))
+                if (mappedConduct[weekday[i]]) {
+                    attInput.value = mappedConduct[weekday[i]].conduct;
+                    attInput.setAttribute('data-conductId', mappedConduct[weekday[i]].id);
+                    attInput.setAttribute('data-classDate', mappedConduct[weekday[i]].class_date)
+                    //td.appendChild(document.createTextNode(mappedConduct[weekday[i]]))
                 } else {
                     attInput.value = "N/A";
                     attInput.setAttribute('data-classDate', addDays(firstDayOfWeek, i))
@@ -136,7 +136,7 @@ fetch('/api/student', {
 })
 .then(() => {
     const { firstDayOfWeek, lastDayOfWeek} = calculateWeekForToday(); 
-   return fetchGrade(firstDayOfWeek, lastDayOfWeek)
+   return fetchConduct(firstDayOfWeek, lastDayOfWeek)
 })
 .catch(err => {
     console.log(err.message);
@@ -171,11 +171,11 @@ const calculateWeekForToday = () => {
 const updateTable = () => {
     const startDate = document.getElementById("startDate").value.trim();
     const endDate = document.getElementById("endDate").value.trim();
-    fetchGrade(startDate, endDate);
+    fetchConduct(startDate, endDate);
 }
 
-const editGrade = (flag) => {
-    const table = document.getElementById("gradeTable");
+const editConduct = (flag) => {
+    const table = document.getElementById("conductTable");
     for (let i=1, row; row = table.rows[i]; i++){
         for(let j=1, cell; cell = row.cells[j]; j++) {
             const inputs = cell.getElementsByTagName('input');
@@ -188,15 +188,15 @@ const editGrade = (flag) => {
     document.getElementById("editButton").disabled = true;
 }
 
-const saveGrade = () => {
+const saveConduct = () => {
 
-    editGrade(true)
+    editConduct(true)
     document.getElementById("saveButton").disabled = true;
     document.getElementById("editButton").disabled = false;
 }
 
-const updateGradeApiCall = async (values) => {
-    return fetch('/api/grades/update', {
+const updateConductApiCall = async (values) => {
+    return fetch('/api/conduct/update', {
         method: 'POST',
         body: JSON.stringify(values),
         headers: { 'Content-Type': 'application/json' },
