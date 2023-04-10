@@ -59,7 +59,7 @@ const addDays = (date, days) => {
 }
 
 const fetchGrade = (firstDayOfWeek, lastDayOfWeek) => {
-     return fetch(`/api/grade/${firstDayOfWeek}/${lastDayOfWeek}`, {
+     return fetch(`/api/grades/${firstDayOfWeek}/${lastDayOfWeek}`, {
         method: 'GET',
     headers: { 'Content-Type': 'application/json' },
     }).then(data => data.json())
@@ -196,7 +196,7 @@ const saveGrade = () => {
 }
 
 const updateGradeApiCall = async (values) => {
-    return fetch('/api/grade/update', {
+    return fetch('/api/grades/update', {
         method: 'POST',
         body: JSON.stringify(values),
         headers: { 'Content-Type': 'application/json' },

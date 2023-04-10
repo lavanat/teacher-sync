@@ -45,15 +45,15 @@ router.get('/', async (req, res) => {
   router.get('/register', (req, res) => {
     // If the user is already logged in, redirect the request to another route
     if (req.session.logged_in) {
-      res.redirect('/grade');
+      res.redirect('/grades');
       return;
     }
   
     res.render('register');
   });
 
-  router.get('/grade', withAuth, async (req, res) => {
-      res.render('grade', {
+  router.get('/grades', withAuth, async (req, res) => {
+      res.render('grades', {
         logged_in: req.session.logged_in,
         teacher_name: req.session.teacher_name
       })
