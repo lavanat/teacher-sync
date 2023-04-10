@@ -18,7 +18,7 @@ CREATE TABLE students (
 );
 
 -- Child Table
-CREATE TABLE grade (
+CREATE TABLE grades (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     class_date DATE NOT NULL,
     grade INT NOT NULL,

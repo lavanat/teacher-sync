@@ -10,7 +10,7 @@ VALUES ("Anna"),
        ("Isabel"),
        ("John");
 
-INSERT INTO grade (class_date, grade, student_id)
+INSERT INTO grades (class_date, grade, student_id)
 VALUES ("2023-04-03",95,1),
        ("2023-04-03",75,2),
        ("2023-04-03",35,3),
