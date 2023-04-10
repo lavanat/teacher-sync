@@ -37,7 +37,10 @@ app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+// place where images and css style sheet stored
+// app.use(express.static(path.join(__dirname, 'public')));
+//changed previous to below based on youtube vid
+app.use(express.static("public"));
 
 app.use(routes);
 
