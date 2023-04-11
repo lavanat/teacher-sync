@@ -168,10 +168,79 @@ const calculateWeekForToday = () => {
     }
 }
 
+const fetchConductinput = (firstDayOfWeek, lastDayOfWeek) => {
+     return fetch(`/api/conduct/${firstDayOfWeek}/${lastDayOfWeek}`, {
+        method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+    }).then(data => data.json())
+    .then(conductData => {
+        conduct = [...conductData]
+    }).then(() => {
+        cleanUpTableRows();
+        const { firstDayOfWeek, lastDayOfWeek} = calculateWeekForToday();
+        //document.getElementById("tableLabel").innerHTML = `Showing conduct for ${firstDayOfWeek} - ${lastDayOfWeek}`
+        const table = document.getElementById("conductTable");
+        
+        const tbody = document.createElement('tbody');
+
+        students.forEach((st, idx) => {
+            const tr = table.insertRow();
+
+            const stNameTd = tr.insertCell()
+            stNameTd.appendChild(document.createTextNode(st.student_name))
+
+
+            const tempArray = conduct.filter(att => att.student_id == st.id);
+
+            const mappedConduct = mapDateToDay(tempArray);
+
+            for(let i = 1; i <=5; i++) {
+                const td = tr.insertCell();
+                const attInput = document.createElement('input');
+                attInput.readOnly = true;
+
+                attInput.setAttribute('data-studentId', st.id);
+
+                attInput.ondblclick = function(event) {
+                  event.target.readOnly = false;
+                }
+
+                attInput.onkeypress = function(event) {
+                    if(event.key == "Enter") {
+                       updateConductApiCall({
+                           student_id: event.target.getAttribute("data-studentId"), 
+                           conduct: event.target.value, 
+                           conduct_id: event.target.getAttribute("data-conductId"), 
+                           class_date: event.target.getAttribute("data-classDate")
+                       }).then(() => {
+                           event.target.readOnly = true;
+                           alert("Conduct has been updated");
+                       })
+                    }
+                    
+                }
+
+                if (mappedConduct[weekday[i]]) {
+                    attInput.value = mappedConduct[weekday[i]].conduct;
+                    attInput.setAttribute('data-conductId', mappedConduct[weekday[i]].id);
+                    attInput.setAttribute('data-classDate', mappedConduct[weekday[i]].class_date)
+                    //td.appendChild(document.createTextNode(mappedConduct[weekday[i]]))
+                } else {
+                    attInput.value = "N/A";
+                    attInput.setAttribute('data-classDate', addDays(firstDayOfWeek, i))
+                    // td.appendChild(document.createTextNode('N/A'))
+                }
+                td.appendChild(attInput);
+            }
+
+        })
+    })
+}
 const updateTable = () => {
     const startDate = document.getElementById("startDate").value.trim();
     const endDate = document.getElementById("endDate").value.trim();
-    fetchConduct(startDate, endDate);
+    fetchConductinput(startDate, endDate);
+    document.getElementById("tableLabel").innerHTML = `Showing attendance for ${startDate} - ${endDate}`
 }
 
 const editConduct = (flag) => {

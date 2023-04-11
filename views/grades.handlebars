@@ -168,10 +168,79 @@ const calculateWeekForToday = () => {
     }
 }
 
+const fetchGradeinput = (firstDayOfWeek, lastDayOfWeek) => {
+     return fetch(`/api/grades/${firstDayOfWeek}/${lastDayOfWeek}`, {
+        method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+    }).then(data => data.json())
+    .then(gradeData => {
+        grade = [...gradeData]
+    }).then(() => {
+        cleanUpTableRows();
+        const { firstDayOfWeek, lastDayOfWeek} = calculateWeekForToday();
+       // document.getElementById("tableLabel").innerHTML = `Showing grades for ${firstDayOfWeek} - ${lastDayOfWeek}`
+        const table = document.getElementById("gradeTable");
+        
+        const tbody = document.createElement('tbody');
+
+        students.forEach((st, idx) => {
+            const tr = table.insertRow();
+
+            const stNameTd = tr.insertCell()
+            stNameTd.appendChild(document.createTextNode(st.student_name))
+
+
+            const tempArray = grade.filter(att => att.student_id == st.id);
+
+            const mappedGrade = mapDateToDay(tempArray);
+
+            for(let i = 1; i <=5; i++) {
+                const td = tr.insertCell();
+                const attInput = document.createElement('input');
+                attInput.readOnly = true;
+
+                attInput.setAttribute('data-studentId', st.id);
+
+                attInput.ondblclick = function(event) {
+                  event.target.readOnly = false;
+                }
+
+                attInput.onkeypress = function(event) {
+                    if(event.key == "Enter") {
+                       updateGradeApiCall({
+                           student_id: event.target.getAttribute("data-studentId"), 
+                           grade: event.target.value, 
+                           grade_id: event.target.getAttribute("data-gradeId"), 
+                           class_date: event.target.getAttribute("data-classDate")
+                       }).then(() => {
+                           event.target.readOnly = true;
+                           alert("Grade has been updated");
+                       })
+                    }
+                    
+                }
+
+                if (mappedGrade[weekday[i]]) {
+                    attInput.value = mappedGrade[weekday[i]].grade;
+                    attInput.setAttribute('data-gradeId', mappedGrade[weekday[i]].id);
+                    attInput.setAttribute('data-classDate', mappedGrade[weekday[i]].class_date)
+                    //td.appendChild(document.createTextNode(mappedGrade[weekday[i]]))
+                } else {
+                    attInput.value = "N/A";
+                    attInput.setAttribute('data-classDate', addDays(firstDayOfWeek, i))
+                    // td.appendChild(document.createTextNode('N/A'))
+                }
+                td.appendChild(attInput);
+            }
+
+        })
+    })
+}
 const updateTable = () => {
     const startDate = document.getElementById("startDate").value.trim();
     const endDate = document.getElementById("endDate").value.trim();
-    fetchGrade(startDate, endDate);
+    fetchGradeinput(startDate, endDate);
+    document.getElementById("tableLabel").innerHTML = `Showing attendance for ${startDate} - ${endDate}`
 }
 
 const editGrade = (flag) => {
