@@ -29,7 +29,7 @@ Grade.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'grade',
+        modelName: 'grades',
       }
 );
 
