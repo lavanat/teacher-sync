@@ -1,7 +1,7 @@
 /* Carl style.css */
 
 body {
-    background-image: url(/assets/pexels-mudassir-ali-2680270.jpg);
+    background-image: url("/assets/pexels-mudassir-ali-2680270.jpg");
     background-position: center;
     background-size: cover;
     height: 96vh;
@@ -11,9 +11,6 @@ body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.container-fluid {
-
-}
 
 
 h1 {
@@ -34,51 +31,28 @@ img {
     border-radius: 15px;
     margin-left: 575px;
     
+}
+button {
+    font-size: 18px;
+    padding: 8px 16px;
+    margin-top: 20px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    color: #fff;
+    background: #000;  
+    margin-left: 118px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover{
+    color:#000;
+    background: #fff;
 
 }
 
-#gradingLabel {
-
-  text-align: center;
-}
-
-.attendanceTable {
-  text-align: center;
-
-}
-
-.conductTable {
-  text-align: center;
-
-}
-
-.gradesTable  {
-  text-align: center;
-
-}
-
-.buttons {
-
-
-}
-#landingPage {
-  background-color: red;
-  
-}
-
-#gradingPeriod {
-  background-color: yellow;
-}
-
-#footerPage {
-  background-color: blue;
-}
-.dateField {
-  margin-left: 570px;
-
-}
-
-}
+/*
 [type="date"] {
   background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
 }
@@ -125,16 +99,4 @@ button:hover{
     color:#000;
     background: #fff;
 
-}
-
-.bottom-container {
-  text-align: center;
-  margin: 0 auto;
-  
-}
-
-#footer {
-  margin-top: 100px;
-  padding: 2% 12%;
-  text-align: center;
 }
