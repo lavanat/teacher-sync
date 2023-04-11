@@ -40,7 +40,9 @@ router.get('/', async (req, res) => {
       return;
     }
   
-    res.render('login');
+    res.render('login',{
+      Logincss: true, 
+    });
 
   });
   
@@ -51,7 +53,9 @@ router.get('/', async (req, res) => {
       return;
     }
   
-    res.render('register');
+    res.render('register',{
+      Registercss: true,
+    });
   });
 
   router.get('/grades', withAuth, async (req, res) => {
