@@ -11,10 +11,10 @@
   <link rel="stylesheet" href="/css/Home.css"> 
  {{/if}}
  {{#if Logincss}}
-  <link rel="stylesheet" href="/css/Home.css"> 
+  <link rel="stylesheet" href="/css/login.css"> 
  {{/if}}
  {{#if Registercss}}
-  <link rel="stylesheet" href="/css/Home.css"> 
+  <link rel="stylesheet" href="/css/register.css"> 
  {{/if}}
 
  {{#if Studentcss}}
@@ -38,9 +38,7 @@
 <body>
   <div class="flex-column justify-space-around">
       <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-        <a href="/">Teacher Sync</a>
-      </h1>
+      
       <nav>
         {{#if logged_in}}
         <a href="/students">Students</a>
@@ -51,8 +49,8 @@
         <!-- Conditionally render login or logout links -->
         <button class="no-button" id="logout">logout</button>
         {{else}}
-        <a href="/login">login</a>
-        <a href="/register">register</a>
+        {{!--<a href="/login">login</a>
+        <a href="/register">register</a>--}}
         {{!-- <button class="no-button" id="logout">logout</button> --}}
         {{/if}}
       </nav>
