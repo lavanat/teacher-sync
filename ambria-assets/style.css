@@ -1,4 +1,4 @@
-body {
+.row {
     background-image: url(pexels-mudassir-ali-2680270.jpg);
     background-position: center;
     background-size: cover;
@@ -79,7 +79,7 @@ i{
 
 }
 
-button{
+.btn btn-primary{
     font-size: 18px;
     padding: 8px 16px;
     margin-top: 20px;
@@ -97,4 +97,8 @@ button:hover{
     color:#000;
     background: #fff;
 
+}
+
+h2 {
+    color: red;
 }
