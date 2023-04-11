@@ -1,18 +1,65 @@
-
-body {
-    background-color:  rgb(138, 167, 207);
+body  {
+ /*   background-image:  url(images/pexels-mudassir-ali-2680270.jpg); */
+ background-color: blue;
     
 }
 
-h1 {
-    padding-left: 500px;
-    padding-top: 300px;
+img {
+    width: 150px;
+    height: 150px;
+    border-radius: 15px;
+    margin-left: 460px;
+
 }
 
-.section {
-    padding-left: 600px;
-    font-size: 150%;
+.h1 {
+    color: black;
 }
 
+.no-button {
+  color: black;
+  font-weight: bold;
 
+}
+.teacherButton {
+    color: black;
+    font-weight: bold;
+    padding: 10px 5px;
+    
+}
 
+.studentButton {
+    color: black;
+    font-weight: bold;
+    padding: 10px 5px;
+}
+
+.gradesButton {
+    color:black;
+    font-weight: bold;
+    padding: 10px 5px;
+}
+
+.attendanceButton {
+    color: black;
+    font-weight: bold;
+    padding: 10px 5px;
+}
+
+.conductButton {
+    color: black;
+    font-weight: bold;
+    padding: 10px 5px;
+}
+
+.reportButton {
+    color: black;
+    font-weight: bold;
+    padding: 10px 5px;
+}
+
+label {
+    color: black;
+    font-weight: bold;
+    padding: 10px
+}
