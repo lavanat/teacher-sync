@@ -1,13 +1,15 @@
-
-<div id="students"></div>
+<div class="container">
+<div id="students">
 <label>Start date</label>
 <input id="startDate"  type="text" placeholder="yyyy-mm-dd"/>
 <label>End date</label>
 <input id="endDate" type="text" placeholder="yyyy-mm-dd"/>
-<button onclick="updateTable()">Search</button>
-
-
+<button id="search" onclick="updateTable()">Search</button>
+</div>
+<br />
 <div id="tableLabel"></div>
+<br />
+<div>
 <table id="gradeTable">
     <thead>
         <th>Student Name</th>
@@ -18,7 +20,8 @@
         <th>Friday</th>
     </thead>
 </table>
-
+</div>
+</div>
 {{!-- <button onclick="editGrade(false)" id="editButton">Edit grade</button> --}}
 {{!-- <button onclick="saveGrade()" id="saveButton" disabled>Save</button> --}}
 

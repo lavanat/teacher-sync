@@ -1,14 +1,16 @@
+<div id="students">
 <input type="text" id="studentInput"/>
 <button id="addStudentButton" onclick="addStudent()">Add Student</button>
-
+</div>
+<div id="sTable">
 <table id="studentTable">
     <thead>
         <th>
             Student Name
         </th>
-    </thead>
-    
+    </thead> 
 </table>
+</div>
 
 <script>
     let students = [];
@@ -34,6 +36,7 @@
         const table = document.getElementById("studentTable");
 
         const tbody = document.createElement('tbody');
+        table.setAttribute("class", "border_class");
 
         students.forEach(st => {
             const tr = table.insertRow();
@@ -41,6 +44,7 @@
             const stNameTd = tr.insertCell()
             stNameTd.appendChild(document.createTextNode(st.student_name));
             const deleteButton = document.createElement('button');
+            deleteButton.className='btn-delete';
             deleteButton.textContent = 'Delete';
             deleteButton.onclick = function() {
                 deleteStudent(st.id)
