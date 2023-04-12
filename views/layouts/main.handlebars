@@ -30,27 +30,27 @@
   <link rel="stylesheet" href="/css/grades.css"> 
   {{/if}}
 
-
-
-
 </head>
 
 <body>
   <div class="flex-column justify-space-around">
       <header class="display-flex justify-space-between align-center p-2">
-      <h1><img src="images/teacher-sync-logo.png">
       <h1>
-        <a class="teacherButton" href="/">Teacher Sync</a>
-      </h1>
+      <!--<h1>
+        <a class="teacherButton" href="/">Teacher Sync</a> -->
+      </h1> 
       <nav>
         {{#if logged_in}}
-        <a class="studentButton" href="/students">Students</a>
-        <a class="gradesButton" href="/grades">Grades</a>
-        <a class="conductButton" href="/conduct">Conduct</a>
-        <a class="attendanceButton" href="/attendance">Attendance</a>
-        <a class="reportButton" href="/reportcard">Report Card</a>
+        <ul>
+        <li><button class="no-button" id="logout">Logout</button></li>
+        <li><a class="conductButton" href="/conduct">Conduct</a></li>
+        <li><a class="attendanceButton" href="/attendance">Attendance</a></li>
+        <li><a class="gradesButton" href="/grades">Grades</a></li>
+        <li><a class="studentButton" href="/students">Students</a></li>
+        <!--<a class="reportButton" href="/reportcard">Report Card</a> -->
         <!-- Conditionally render login or logout links -->
-        <button class="no-button" id="logout">logout</button>
+        
+        </ul>
         {{else}}
         {{!--<a href="/login">login</a>
         <a href="/register">register</a>--}}
@@ -62,9 +62,13 @@
       <!-- Render the sub layout -->
       {{{ body }}}
     </main>
-    <footer>
-      
-    </footer>
+    <footer id="footer">
+        <i class="social-icon fa-brands fa-facebook"></i>
+        <i class="social-icon fa-brands fa-twitter"></i>
+        <i class="social-icon fa-brands fa-square-instagram"></i>
+        <i class="social-icon fa-solid fa-envelope"></i>
+        <p>© Copyright Coding-League</p>
+     </footer>
   </div>
 
   <!-- Render script for logged in users only -->
