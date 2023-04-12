@@ -1,6 +1,6 @@
 body  {
  /*   background-image:  url(images/pexels-mudassir-ali-2680270.jpg); */
-  background-color: blue;
+  background-color: rgb(158, 193, 219);
     
 }
 
@@ -9,6 +9,7 @@ img {
     height: 150px;
     border-radius: 15px;
     margin-left: 460px;
+    
 
 }
 

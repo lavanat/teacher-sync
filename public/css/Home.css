@@ -1,65 +1,91 @@
-body  {
+
  /*   background-image:  url(images/pexels-mudassir-ali-2680270.jpg); */
- background-color: blue;
+ 
+.background 
+    {  background-image: url(images/2.jpeg);
+        position:static;
+        background-position: center;
+        background-size: cover;
+        height: 96vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .login-box{
+        width: 320px;
+        height: 390px;
+        background: radial-gradient(rgba(255, 255, 255, 0.6));
+        box-shadow: 5px 10px 20px rgba(0,0,0,0.6);
+        backdrop-filter: blur(2px);
+        border-radius: 15px;
+        margin-left: 540px;
+        position: absolute;
+        top: 400px;
+        
+        
+    
+    }
+
+.Welcome {
+    position: absolute;
+    top: 100px;
+    left: 415px;
+    font-size: 200%;
+    color: rgb(238, 205, 168);
+}
+
+.section {
+     padding-left: 38px;
+     bottom: 300px;
+     font-size: 170%;
+     color: rgb(24, 17, 17);
+     
+    
+
+     
+}
+
+ul {
+    list-style: none;
+    bottom: 150px;
+    position: absolute;
+   
+    
+    
+    
+
     
 }
 
-img {
+.login {
+    padding-left: 50px;
+    line-height: 2.5em;
+}
+
+a:visited{
+    color: rgb(238, 205, 168);
+}
+
+a:hover{
+    color: black;
+}
+
+
+.logo {
+    position: absolute;
     width: 150px;
     height: 150px;
-    border-radius: 15px;
-    margin-left: 460px;
-
-}
-
-.h1 {
-    color: black;
-}
-
-.no-button {
-  color: black;
-  font-weight: bold;
-
-}
-.teacherButton {
-    color: black;
-    font-weight: bold;
-    padding: 10px 5px;
+    margin-left: 27%;
+    margin-top: -140px;
     
+    
+   
+    display: flex;
+
+}
+ 
+.background {
+    opacity: 85%;
 }
 
-.studentButton {
-    color: black;
-    font-weight: bold;
-    padding: 10px 5px;
-}
-
-.gradesButton {
-    color:black;
-    font-weight: bold;
-    padding: 10px 5px;
-}
-
-.attendanceButton {
-    color: black;
-    font-weight: bold;
-    padding: 10px 5px;
-}
-
-.conductButton {
-    color: black;
-    font-weight: bold;
-    padding: 10px 5px;
-}
-
-.reportButton {
-    color: black;
-    font-weight: bold;
-    padding: 10px 5px;
-}
-
-label {
-    color: black;
-    font-weight: bold;
-    padding: 10px
-}

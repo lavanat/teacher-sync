@@ -1,5 +1,6 @@
-body{
-    background-color: rgb(138, 167, 207);
+.background{
+    background-image: url(images/2.jpeg);
+    
     background-position: center;
     background-size: cover;
     height: 96vh;
@@ -10,28 +11,28 @@ body{
 }
 
 
-.login-box {
+.login-box{
     width: 320px;
     height: 390px;
     background: radial-gradient(rgba(255, 255, 255, 0.6));
     box-shadow: 5px 10px 20px rgba(0,0,0,0.6);
-    backdrop-filter: blur(3px);
+    backdrop-filter: blur(2px);
     border-radius: 15px;
-    margin-top: 400px;
-
-}
-
-img {
-    width: 120px;
-    height: 120px;
-    margin-left: 31%;
+    margin-left: 540px;
+    position: absolute;
+    top: 275px;
     
-    border-radius: 15px;
+    
+
 }
+
+
+    
+
 
 h2 {
-    margin-top: 2px;
-    margin-left: 37%;
+    margin-top: 10px;
+    margin-left: 39%;
     font: size 22px;
     cursor: pointer;
 
@@ -57,7 +58,7 @@ input {
     border-right: none;
     background: transparent;
     border-bottom: solid rgb(232, 223, 211);
-    color: #000;
+    color: rgb(252, 252, 252);
     font-size: 15px;
     letter-spacing: 1px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -71,7 +72,7 @@ input:hover {
 }
 
 ::placeholder {
-    color: #000;
+    color: rgb(239, 239, 239);
 }
 
 i{
@@ -88,18 +89,31 @@ button{
     outline: none;
     border: none;
     color: #fff;
-    background: #000;  
-    margin-left: 118px;
+    background: rgb(39, 33, 33);  
+ 
     cursor: pointer;
     transition: 0.3s ease;
+    margin-left: 100px;
 }
 
 button:hover{
-    color:#000;
+    color:rgb(0, 0, 0);
     background: #fff;
+    
 
 }
 
 h2 {
-    color: rgb(0, 0, 0);
+    color: rgb(39, 33, 33);
+    padding-top: 50px;
+}
+
+.form-group {
+    margin-left: 20px;
+    color: rgb(169, 141, 106);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+img {
+    opacity: 85%;
 }
