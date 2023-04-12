@@ -1,13 +1,15 @@
-
-<div id="students"></div>
+<div class="container">
+<div id="students">
 <label>Start date</label>
-<input id="startDate" type="text" placeholder="yyyy-mm-dd"/>
+<input id="startDate"  type="text" placeholder="yyyy-mm-dd"/>
 <label>End date</label>
 <input id="endDate" type="text" placeholder="yyyy-mm-dd"/>
-<button onclick="updateTable()">Search</button>
-
-
+<button id="search" onclick="updateTable()">Search</button>
+</div>
+<br />
 <div id="tableLabel"></div>
+<br />
+<div>
 <table id="conductTable">
     <thead>
         <th>Student Name</th>
@@ -18,6 +20,8 @@
         <th>Friday</th>
     </thead>
 </table>
+</div>
+</div>
 
 {{!-- <button onclick="editConduct(false)" id="editButton">Edit conduct</button> --}}
 {{!-- <button onclick="saveConduct()" id="saveButton" disabled>Save</button> --}}
