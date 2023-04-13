@@ -11,7 +11,7 @@ You can use this application if you would like to track grades, attendance, or c
 
 ## Link to Deployed Application
 
-https://to do
+https://secret-coast-72135.herokuapp.com/
 
 ## Screenshot of Deployed Application
 ![Screenshot of Login Page](./public/images/teacher-sync-Login-page.png)
