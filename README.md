@@ -18,4 +18,4 @@ https://secret-coast-72135.herokuapp.com/
 ![Screenshot of Students Page](./public/images/teacher-sync-students.png)
 ![Screenshot of Grades Page](./public/images/teacher-sync-grades.png)
 ![Screenshot of Attendance Page](./public/images/teacher-sync-attendance.png)
-![Screenshot of Conduct Page](./public/images/Conduct-img.png)
+![Screenshot of Conduct Page](./public/images/teacher-sync-conduct.png)
