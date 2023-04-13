@@ -38,7 +38,7 @@ font-size: 20px;
  position: absolute;
  top: 30%;
  left: 49%;
- margin-top: -170px;
+ margin-top: -40px;
  margin-left: -300px;
 }
 
@@ -62,13 +62,13 @@ font-size: 20px;
   }
 
   .Attendance-img{
-    position: absolute;
- top: 85%;
- left: 19%;
- margin-top: -150px;
- margin-left: -300px; 
- width: 100%;
- height: auto;
+    position: relative;
+    top: 85%;
+    left: 19%;
+    margin-top: -400px;
+    margin-left: -184px;
+    width: 100%;
+    height: auto;
 }
 
 
@@ -134,7 +134,6 @@ position: relative;
   text-align: center;
   position: fixed;
  left: 0;
- bottom: 0;
  width: 100%; 
 }
 
