@@ -36,7 +36,7 @@ font-size: 20px;
   font-weight: bold;
  /* margin: 20px 25px 25px 500px   */
  position: absolute;
- top: 26%;
+ top: 30%;
  left: 49%;
  margin-top: -170px;
  margin-left: -300px;
@@ -47,7 +47,7 @@ font-size: 20px;
   color: white;
   /* margin: 5% auto 0 auto; */
   position: absolute;
- top: 30%;
+ top: 35%;
  left: 58%;
  margin-top: -150px;
  margin-left: -300px;
@@ -60,7 +60,15 @@ font-size: 20px;
   margin-right: 50%;
   margin-left: 3%;
   }
-
+  .conduct-img{
+    position: absolute;
+    top: 85%;
+    left: 19%;
+    margin-top: -150px;
+    margin-left: -300px; 
+    width: 100%;
+    height: auto;
+  }
 ul {
   list-style-type: none;
   margin: 0;
