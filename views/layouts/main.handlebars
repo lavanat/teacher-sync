@@ -7,6 +7,7 @@
   <title>Teacher Sync</title>
   {{!-- <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="/css/style.css"> --}} 
+  
   {{#if Homecss}}
   <link rel="stylesheet" href="/css/Home.css"> 
  {{/if}}
@@ -41,7 +42,7 @@
       </h1> 
       <nav>
         {{#if logged_in}}
-        <ul>
+        <ul> <span> 
         <li><button class="no-button" id="logout">Logout</button></li>
         <li><a class="conductButton" href="/conduct">Conduct</a></li>
         <li><a class="attendanceButton" href="/attendance">Attendance</a></li>
@@ -50,7 +51,7 @@
         <!--<a class="reportButton" href="/reportcard">Report Card</a> -->
         <!-- Conditionally render login or logout links -->
         
-        </ul>
+        </span> </ul>
         {{else}}
         {{!--<a href="/login">login</a>
         <a href="/register">register</a>--}}
