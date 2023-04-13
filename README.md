@@ -14,6 +14,8 @@ You can use this application if you would like to track grades, attendance, or c
 https://to do
 
 ## Screenshot of Deployed Application
-![Screenshot of Login Page](./)
-![Screenshot of Students Page](./)
-![Screenshot of Attendance Page](./)
+![Screenshot of Login Page](./public/images/teacher-sync-Login-page.png)
+![Screenshot of Students Page](./public/images/teacher-sync-students.png)
+![Screenshot of Grades Page](./public/images/teacher-sync-grades.png)
+![Screenshot of Attendance Page](./public/images/teacher-sync-attendance.png)
+![Screenshot of Conduct Page](./public/images/Conduct-img.png)
