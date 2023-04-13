@@ -36,6 +36,7 @@ img {
     font-weight: bold;
    /* margin: 20px 25px 25px 500px   */
    position: absolute;
+
    top: 30%;
    left: 49%;
    margin-top: -170px;
@@ -47,6 +48,7 @@ img {
     color: white;
     /* margin: 5% auto 0 auto; */
     position: absolute;
+
    top: 35%;
    left: 58%;
    margin-top: -150px;
@@ -59,6 +61,7 @@ img {
     text-align: center;
     margin-right: 50%;
     margin-left: 3%;
+
     }
     .grades-img{
       position: absolute;
