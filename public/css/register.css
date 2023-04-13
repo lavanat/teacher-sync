@@ -19,9 +19,15 @@
     backdrop-filter: blur(2px);
     border-radius: 15px;
     margin-left: 540px;
-    position: absolute;
-    top: 275px;
+    /* position: absolute;
+    top: 275px; */
     opacity: 85%;
+
+    position: absolute;
+   top: 60%;
+   left: 58%;
+   margin-top: -170px;
+   margin-left: -300px;
     
     
 

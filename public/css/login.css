@@ -11,6 +11,7 @@
 }
 
 
+
 .login-box{
     width: 320px;
     height: 390px;
@@ -18,10 +19,16 @@
     box-shadow: 5px 10px 20px rgba(0,0,0,0.6);
     backdrop-filter: blur(2px);
     border-radius: 15px;
-    margin-left: 540px;
-    position: absolute;
-    top: 275px;
+    /* margin-left: 540px; */
+    /* position: absolute;
+    top: 275px; */
     opacity: 85%;
+
+    position: absolute;
+   top: 60%;
+   left: 58%;
+   margin-top: -170px;
+   margin-left: -300px;
     
 
 }

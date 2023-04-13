@@ -1,6 +1,12 @@
 
  /*   background-image:  url(images/pexels-mudassir-ali-2680270.jpg); */
- 
+ * {
+    box-sizing: border-box;
+  }
+ .container {
+    display: flex;
+    flex-wrap: wrap;
+   }
 .background 
     {  background-image: url(images/2.jpeg);
         position:static;
@@ -19,10 +25,15 @@
         box-shadow: 5px 10px 20px rgba(0,0,0,0.6);
         backdrop-filter: blur(5px);
         border-radius: 15px;
-        margin-left: 540px;
+        /* margin-left: 540px; */
         position: absolute;
-        top: 500px;
+        /* top: 500px; */
         opacity:85%;
+        position: absolute;
+   top: 62%;
+   left: 60%;
+   margin-top: -170px;
+   margin-left: -300px;
         
         
         
@@ -31,10 +42,14 @@
 
 .Welcome {
     position: absolute;
-    top: 150px;
-    left: 415px;
+    /* top: 150px;
+    left: 415px; */
     font-size: 200%;
     color: rgb(238, 205, 168);
+    top: 32%;
+   left: 50%;
+   margin-top: -170px;
+   margin-left: -300px;
 }
 
 .section {
