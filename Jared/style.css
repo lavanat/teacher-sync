@@ -1,0 +1,101 @@
+body {
+    background-image: url(pexels-mudassir-ali-2680270.jpg) ;
+    margin-right: 120px;
+}
+
+header {
+display:flex;
+justify-content:center;
+}
+
+.section-header {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    text-decoration: underline #d9d9d9;
+    
+}
+
+img {
+    width: 300px;
+    height: 200px;
+    border-radius: 15px;
+    align-items: center;
+
+}
+
+.percentage {
+    background-color: #000;
+    color: #e7e7e7;
+}
+
+caption {
+    padding: 8px;
+    caption-side: bottom;
+}
+
+table {
+border-bottom: 5px solid #d9d9d9;
+border-left: 2px solid #d9d9d9;
+border-top: 2px solid #d9d9d9;
+border-radius: 2px solid #d9d9d9;
+border-right: 2px solid #d9d9d9;
+background-origin: padding-box;
+width: 1000px;
+height: 500px;
+}
+
+colgroup {
+    background-color: #000;
+}
+
+h2 {
+ align-self: center;
+ text-decoration: underline, #d9d9d9;
+ 
+}
+
+h3 {
+    background-color: #000;
+    color: #d9d9d9;
+
+
+}
+
+aside {
+ display:flex;
+ flex-flow: column-reverse;
+ justify-content: right;
+ align-items:flex-end ;
+
+}
+
+button {
+    font-size: 18px;
+    padding: 8px 16px;
+    margin-top: 20px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    color: #fff;
+    background: #000;  
+    margin-left: 118px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    flex-direction: row;
+}
+button:hover{
+    color: #000;
+    background: #fff;
+}
+
+input {
+    width: 875px; 
+    height: 100px;
+}
+
+#footer {
+    margin-top: 100px;
+    padding: 2% 12%;
+    text-align: center;
+  }

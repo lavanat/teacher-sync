@@ -1,0 +1,95 @@
+<section class= "students">
+<div id="students">
+<input type="text" id="studentInput"/>
+<button id="addStudentButton" onclick="addStudent()">Add Student</button>
+</div>
+<div id="sTable">
+<table id="studentTable">
+    <thead>
+        <th class ="th_student">
+            Student Name
+        </th>
+    </thead> 
+</table>
+</div>
+</section>
+<script>
+    let students = [];
+
+    const deleteStudent = (id) => {
+        fetch('/api/student', {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id: Number(id) })
+        })
+        .then(() => {
+            alert("Student was deleted");
+            students = students.filter(sId => sId.id != id)
+            cleanUpTableRows()
+            renderTable()
+        }).catch((err) => {
+            console.log(err.message)
+            alert("There was an error deleting the table");
+        })
+    }
+
+    const renderTable = () => {
+        const table = document.getElementById("studentTable");
+
+        const tbody = document.createElement('tbody');
+        table.setAttribute("class", "border_class");
+
+        students.forEach(st => {
+            const tr = table.insertRow();
+
+            const stNameTd = tr.insertCell()
+            stNameTd.appendChild(document.createTextNode(st.student_name));
+            const deleteButton = document.createElement('button');
+            deleteButton.className='btn-delete';
+            deleteButton.textContent = 'Delete';
+            deleteButton.onclick = function() {
+                deleteStudent(st.id)
+            }
+            stNameTd.appendChild(deleteButton);
+        })
+    }
+
+    fetch('/api/student', {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+    })
+    .then(data => data.json())
+    .then((studentData) => {
+        students = [...studentData];
+        renderTable();
+    })
+
+    const cleanUpTableRows = () => {
+        const table = document.getElementById('studentTable');
+        let tableRows = table?.rows?.length ?? 0;
+
+        while(--tableRows) {
+            table.deleteRow(tableRows);
+        }
+    }
+
+    const addStudent = () => {
+        const inputValue = document.getElementById("studentInput").value.trim();
+
+        fetch('/api/student', {
+            method: 'POST',
+            body: JSON.stringify({ student_name: inputValue }),
+            headers: { 'Content-Type': 'application/json' },
+        }).then(data => data.json())
+        .then((studentData) => {
+            alert("Student was saved");
+            students = [...students, studentData]
+            cleanUpTableRows();
+            renderTable();
+        }).catch(err => {
+            console.log(err);
+            console.log(err.message);
+            alert("There was an error adding the student")
+        })
+    }
+</script>

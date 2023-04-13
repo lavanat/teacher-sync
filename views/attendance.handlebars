@@ -1,0 +1,283 @@
+<div class="container">
+<div id="students">
+<label>Start date</label>
+<input id="startDate"  type="text" placeholder="yyyy-mm-dd"/>
+<label>End date</label>
+<input id="endDate" type="text" placeholder="yyyy-mm-dd"/>
+<button id="search" onclick="updateTable()">Search</button>
+</div>
+<br />
+<div class="table-Label" id="tableLabel"></div>
+<br />
+<div>
+<table id="attendanceTable">
+    <thead>
+        <th>Student Name</th>
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+    </thead>
+</table>
+</div>
+<div class="Attendance-img">
+    <img src="/images/Attendance-img.png" alt="cartoon classroom"> </div>
+</div>
+{{!-- <button onclick="editAttendance(false)" id="editButton">Edit attendance</button> --}}
+{{!-- <button onclick="saveAttendance()" id="saveButton" disabled>Save</button> --}}
+
+
+<script>
+const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+let students = [];
+let attendance = [];
+
+const mapDateToDay = (attendance) => {
+    const result = {};
+
+    attendance.forEach((att, i) => {
+        const tempDay = new Date(att.class_date).getUTCDay();
+        const dayOfWeek = weekday[tempDay];
+        result[dayOfWeek] = att;
+    })
+
+    return result;
+}
+
+const inputStartDate = document.getElementById("startDate");
+const inputEndDate = document.getElementById("endDate");
+
+const cleanUpTableRows = () => {
+    const table = document.getElementById('attendanceTable');
+    let tableRows = table.rows.length;
+
+    while(--tableRows) {
+        table.deleteRow(tableRows);
+    }
+}
+
+const addDays = (date, days) => {
+    const tempDate = new Date(date);
+    const result = new Date(tempDate.setUTCDate(tempDate.getUTCDate() + days));
+    return result.toISOString().split('T')[0];
+}
+
+const fetchAttendance = (firstDayOfWeek, lastDayOfWeek) => {
+     return fetch(`/api/attendance/${firstDayOfWeek}/${lastDayOfWeek}`, {
+        method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+    }).then(data => data.json())
+    .then(attendanceData => {
+        attendance = [...attendanceData]
+    }).then(() => {
+        cleanUpTableRows();
+        const { firstDayOfWeek, lastDayOfWeek} = calculateWeekForToday();
+        document.getElementById("tableLabel").innerHTML = `Showing attendance for ${firstDayOfWeek} - ${lastDayOfWeek}`
+        const table = document.getElementById("attendanceTable");
+        
+        const tbody = document.createElement('tbody');
+
+        students.forEach((st, idx) => {
+            const tr = table.insertRow();
+
+            const stNameTd = tr.insertCell()
+            stNameTd.appendChild(document.createTextNode(st.student_name))
+
+
+            const tempArray = attendance.filter(att => att.student_id == st.id);
+
+            const mappedAttendance = mapDateToDay(tempArray);
+
+            for(let i = 1; i <=5; i++) {
+                const td = tr.insertCell();
+                const attInput = document.createElement('input');
+                attInput.readOnly = true;
+
+                attInput.setAttribute('data-studentId', st.id);
+
+                attInput.ondblclick = function(event) {
+                  event.target.readOnly = false;
+                }
+
+                attInput.onkeypress = function(event) {
+                    if(event.key == "Enter") {
+                       updateAttendanceApiCall({
+                           student_id: event.target.getAttribute("data-studentId"), 
+                           attendance: event.target.value, 
+                           attendance_id: event.target.getAttribute("data-attendanceId"), 
+                           class_date: event.target.getAttribute("data-classDate")
+                       }).then(() => {
+                           event.target.readOnly = true;
+                           alert("Attendance has been updated");
+                       })
+                    }
+                    
+                }
+
+                if (mappedAttendance[weekday[i]]) {
+                    attInput.value = mappedAttendance[weekday[i]].attendance;
+                    attInput.setAttribute('data-attendanceId', mappedAttendance[weekday[i]].id);
+                    attInput.setAttribute('data-classDate', mappedAttendance[weekday[i]].class_date)
+                    //td.appendChild(document.createTextNode(mappedAttendance[weekday[i]]))
+                } else {
+                    attInput.value = "N/A";
+                    attInput.setAttribute('data-classDate', addDays(firstDayOfWeek, i))
+                    // td.appendChild(document.createTextNode('N/A'))
+                }
+                td.appendChild(attInput);
+            }
+
+        })
+    })
+}
+
+fetch('/api/student', {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+}).then(data => data.json())
+.then(studentData => {
+    students = [...studentData]
+})
+.then(() => {
+    const { firstDayOfWeek, lastDayOfWeek} = calculateWeekForToday(); 
+   return fetchAttendance(firstDayOfWeek, lastDayOfWeek)
+})
+.catch(err => {
+    console.log(err.message);
+    alert("Failed to load data")
+})
+
+function formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) 
+        month = '0' + month;
+    if (day.length < 2) 
+        day = '0' + day;
+
+    return [year, month, day].join('-');
+}
+
+const calculateWeekForToday = () => {
+    const todayDate = new Date(new Date().toUTCString());
+    const firstDayOfWeek = new Date(todayDate.setDate(todayDate.getDate() - todayDate.getDay()))
+    const lastDayOfWeek = new Date(todayDate.setDate(todayDate.getDate() - todayDate.getDay()+6))
+
+    return {
+        firstDayOfWeek: formatDate(firstDayOfWeek),
+        lastDayOfWeek: formatDate(lastDayOfWeek)
+    }
+}
+
+const fetchAttendanceinput = (firstDayOfWeek, lastDayOfWeek) => {
+     return fetch(`/api/attendance/${firstDayOfWeek}/${lastDayOfWeek}`, {
+        method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+    }).then(data => data.json())
+    .then(attendanceData => {
+        attendance = [...attendanceData]
+    }).then(() => {
+        cleanUpTableRows();
+        const { firstDayOfWeek, lastDayOfWeek} = calculateWeekForToday();
+       // document.getElementById("tableLabel").innerHTML = `Showing attendance for ${firstDayOfWeek} - ${lastDayOfWeek}`
+        const table = document.getElementById("attendanceTable");
+        
+        const tbody = document.createElement('tbody');
+
+        students.forEach((st, idx) => {
+            const tr = table.insertRow();
+
+            const stNameTd = tr.insertCell()
+            stNameTd.appendChild(document.createTextNode(st.student_name))
+
+
+            const tempArray = attendance.filter(att => att.student_id == st.id);
+
+            const mappedAttendance = mapDateToDay(tempArray);
+
+            for(let i = 1; i <=5; i++) {
+                const td = tr.insertCell();
+                const attInput = document.createElement('input');
+                attInput.readOnly = true;
+
+                attInput.setAttribute('data-studentId', st.id);
+
+                attInput.ondblclick = function(event) {
+                  event.target.readOnly = false;
+                }
+
+                attInput.onkeypress = function(event) {
+                    if(event.key == "Enter") {
+                       updateAttendanceApiCall({
+                           student_id: event.target.getAttribute("data-studentId"), 
+                           attendance: event.target.value, 
+                           attendance_id: event.target.getAttribute("data-attendanceId"), 
+                           class_date: event.target.getAttribute("data-classDate")
+                       }).then(() => {
+                           event.target.readOnly = true;
+                           alert("Attendance has been updated");
+                       })
+                    }
+                    
+                }
+
+                if (mappedAttendance[weekday[i]]) {
+                    attInput.value = mappedAttendance[weekday[i]].attendance;
+                    attInput.setAttribute('data-attendanceId', mappedAttendance[weekday[i]].id);
+                    attInput.setAttribute('data-classDate', mappedAttendance[weekday[i]].class_date)
+                    //td.appendChild(document.createTextNode(mappedAttendance[weekday[i]]))
+                } else {
+                    attInput.value = "N/A";
+                    attInput.setAttribute('data-classDate', addDays(firstDayOfWeek, i))
+                    // td.appendChild(document.createTextNode('N/A'))
+                }
+                td.appendChild(attInput);
+            }
+
+        })
+    })
+}
+
+const updateTable = () => {
+    const startDate = document.getElementById("startDate").value.trim();
+    const endDate = document.getElementById("endDate").value.trim();
+    fetchAttendanceinput(startDate, endDate);
+    document.getElementById("tableLabel").innerHTML = `Showing attendance for ${startDate} - ${endDate}`
+}
+
+const editAttendance = (flag) => {
+    const table = document.getElementById("attendanceTable");
+    for (let i=1, row; row = table.rows[i]; i++){
+        for(let j=1, cell; cell = row.cells[j]; j++) {
+            const inputs = cell.getElementsByTagName('input');
+            for(let k=0; k<inputs.length; k++) {
+                inputs[k].disabled = flag;
+            }
+        }
+    }
+    document.getElementById("saveButton").disabled = false;
+    document.getElementById("editButton").disabled = true;
+}
+
+const saveAttendance = () => {
+
+    editAttendance(true)
+    document.getElementById("saveButton").disabled = true;
+    document.getElementById("editButton").disabled = false;
+}
+
+const updateAttendanceApiCall = async (values) => {
+    return fetch('/api/attendance/update', {
+        method: 'POST',
+        body: JSON.stringify(values),
+        headers: { 'Content-Type': 'application/json' },
+    }).catch(err => {
+        alert("Failed to update data")
+    })
+}
+    
+</script>

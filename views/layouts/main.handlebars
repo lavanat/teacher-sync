@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher Sync</title>
+  {{!-- <link rel="stylesheet" href="/css/jass.css">
+  <link rel="stylesheet" href="/css/style.css"> --}} 
+  
+  {{#if Homecss}}
+  <link rel="stylesheet" href="/css/Home.css"> 
+ {{/if}}
+ {{#if Logincss}}
+  <link rel="stylesheet" href="/css/login.css"> 
+ {{/if}}
+ {{#if Registercss}}
+  <link rel="stylesheet" href="/css/register.css"> 
+ {{/if}}
+
+ {{#if Studentcss}}
+  <link rel="stylesheet" href="/css/student.css"> 
+  {{/if}}
+  {{#if Conductcss}}
+  <link rel="stylesheet" href="/css/conduct.css"> 
+  {{/if}}
+  {{#if Attendancecss}}
+  <link rel="stylesheet" href="/css/attendance.css"> 
+  {{/if}}
+  {{#if Gradescss}}
+  <link rel="stylesheet" href="/css/grades.css"> 
+  {{/if}}
+
+</head>
+
+<body>
+  <div class="flex-column justify-space-around">
+      <header class="display-flex justify-space-between align-center p-2">
+      <h1>
+      <!--<h1>
+        <a class="teacherButton" href="/">Teacher Sync</a> -->
+      </h1> 
+      <nav>
+        {{#if logged_in}}
+        <ul> <span> 
+        <li><button class="no-button" id="logout">Logout</button></li>
+        <li><a class="conductButton" href="/conduct">Conduct</a></li>
+        <li><a class="attendanceButton" href="/attendance">Attendance</a></li>
+        <li><a class="gradesButton" href="/grades">Grades</a></li>
+        <li><a class="studentButton" href="/students">Students</a></li>
+        <!--<a class="reportButton" href="/reportcard">Report Card</a> -->
+        <!-- Conditionally render login or logout links -->
+        
+        </span> </ul>
+        {{else}}
+        {{!--<a href="/login">login</a>
+        <a href="/register">register</a>--}}
+        {{!-- <button class="no-button" id="logout">logout</button> --}}
+        {{/if}}
+      </nav>
+    </header>
+    <main class="container container-fluid">
+      <!-- Render the sub layout -->
+      {{{ body }}}
+    </main>
+    <footer id="footer">
+        <i class="social-icon fa-brands fa-facebook"></i>
+        <i class="social-icon fa-brands fa-twitter"></i>
+        <i class="social-icon fa-brands fa-square-instagram"></i>
+        <i class="social-icon fa-solid fa-envelope"></i>
+        <p>© Copyright Coding-League</p>
+     </footer>
+  </div>
+
+  <!-- Render script for logged in users only -->
+{{#if logged_in}}
+  <script src="/js/logout.js"></script>
+{{/if}}
+</body>
+
+</html>
