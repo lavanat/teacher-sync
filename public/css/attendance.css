@@ -1,144 +1,154 @@
 * {
-    box-sizing: border-box;
-  }
+  box-sizing: border-box;
+}
 body  {
- /*   background-image:  url(images/pexels-mudassir-ali-2680270.jpg); */
-    background-color:rgb(138, 167, 207);
-    color: white;
+/*   background-image:  url(images/pexels-mudassir-ali-2680270.jpg); */
+  background-color:rgb(138, 167, 207);
+  color: white;
 }
 
 img {
-    width: 200px;
-    height: 200px;
-    border-radius: 15px;
-    margin-left: 460px;
-    justify-content: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 15px;
+  margin-left: 460px;
+  justify-content: center;
 
 }
 
 main {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 img {
-    display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 20%;
+  display: block;
+margin-left: auto;
+margin-right: auto;
+width: 20%;
 }
 
 
 #students{
- font-size: 20px;
-    color: white;
-    font-weight: bold;
-    margin: 20px 25px 25px 500px  
+font-size: 20px;
+  color: white;
+  font-weight: bold;
+ /* margin: 20px 25px 25px 500px   */
+ position: absolute;
+ top: 26%;
+ left: 49%;
+ margin-top: -170px;
+ margin-left: -300px;
 }
 
-#tableLabel{
-    font-size: 20px;
-    color: white;
-    margin-top: 5%;
-    }
-    
+.table-Label{
+  font-size: 20px;
+  color: white;
+  /* margin: 5% auto 0 auto; */
+  position: absolute;
+ top: 30%;
+ left: 58%;
+ margin-top: -150px;
+ margin-left: -300px;
+  }
+  
 #attendanceTable{
-    margin-top: 7%;
-    border: 1px solid;
-    text-align: center;
-    margin-right: 50%;
-    margin-left: 50%;
-    }
+  margin-top: 25%;
+  border: 1px solid;
+  text-align: center;
+  margin-right: 50%;
+  margin-left: 3%;
+  }
 
 ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color:whitesmoke;
-    width: auto;
-  }
-  
-  li {
-    float: right;
-  }
-  
-  li a {
-    display: block;
-    color:rgb(23, 185, 244);
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: bold;
-  }
-  
-  li a:hover {
-    background-color: #111;
-  }
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color:whitesmoke;
+  width: auto;
+}
+
+li {
+  float: right;
+}
+
+li a {
+  display: block;
+  color:rgb(23, 185, 244);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+li a:hover {
+  background-color: #111;
+}
 #logout:hover{
-    background-color: black;
-    color: white;
+  background-color: black;
+  color: white;
 }
 #logout {
 background-color: #f1f1f1;
-  color: black;
-  font-size: 20px;
-  padding: 14px 16px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  text-align: center;
-  position: relative;
+color: black;
+font-size: 20px;
+padding: 14px 16px;
+border: none;
+cursor: pointer;
+border-radius: 5px;
+text-align: center;
+position: relative;
 }
 #search, #startDate, #endDate {
-    background-color: #f1f1f1;
-      color: black;
-      font-size: 15px;
-      padding: 10px 12px;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
-      text-align: center;
-      position: relative;
-    }
-    
+  background-color: #f1f1f1;
+    color: black;
+    font-size: 15px;
+    padding: 10px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    position: relative;
+  }
+  
 
 
 
 #footer {
-    margin-top: 100px;
-    padding: 2% 12%;
-    text-align: center;
-    position: fixed;
-   left: 0;
-   bottom: 0;
-   width: 100%; 
-  }
-  
-  
-  /*For medium devices*/
-  @media only screen and (min-width: 481px) and (max-width: 768px) {
-    .students, .tableLabel, .gradeTable
-     {
-     width: auto;
-     height: 320px;
-     flex-direction: column;
-    }
-  }
+  margin-top: 100px;
+  padding: 2% 12%;
+  text-align: center;
+  position: fixed;
+ left: 0;
+ bottom: 0;
+ width: 100%; 
+}
 
-  /*For large devices*/
-  @media screen and (min-width: 769px) {
-    .students, .tableLabel, .gradeTable
-     {
-      
+
+/*For medium devices*/
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .students, .tableLabel, .gradeTable
+   {
    width: auto;
    height: 320px;
    flex-direction: column;
-    }
   }
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-   }
+}
+
+/*For large devices*/
+@media screen and (min-width: 769px) {
+  .students, .tableLabel, .gradeTable
+   {
+    
+ width: auto;
+ height: 320px;
+ flex-direction: column;
+  }
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+ }
